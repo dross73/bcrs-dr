@@ -16,6 +16,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 /**
  * Routes
@@ -43,9 +44,9 @@ const port = process.env.PORT || 3000; // server port
 
 // This line will need to be replaced with your actual database connection string
 const conn =
-  "mongodb+srv://bcrs_dr_user:" +
+  "mongodb+srv://bcrs_user:" +
   process.env.MONGO_ATLAS_PW +
-  "@buwebdev-cluster-1.cnaxx.mongodb.net/bcrs-dr?retryWrites=true&w=majority";
+  "@bcrs-cluster.qwxox9f.mongodb.net/bcrs-dr?retryWrites=true&w=majority&appName=bcrs-cluster";
 
 /**
  * Database connection
