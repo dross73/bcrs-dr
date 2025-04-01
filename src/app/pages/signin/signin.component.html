@@ -1,0 +1,104 @@
+<!--
+ * Title: signin.component.html
+ * Author: Professor Krasso
+ * Date: 19 April 2021
+ * Modified By: Brooklyn Hairston
+ * Description: hyperlink markup for signin component
+-->
+
+<!-- TOOLBAR  -->
+
+<!-- fxLayout -->
+<div fxLayout="row wrap" fxLayoutAlign="center start">
+  <div fxFlex.gt-sm="55" fxFlex="100">
+    <!-- signin card content -->
+
+    <mat-card-content class="login">
+      <small style="color: red" *ngIf="errorMessage">
+        {{ errorMessage }}<br
+      /></small>
+      <mat-card class="mat-elevation-z8">
+        <!-- signin form -->
+        <form
+          [formGroup]="form"
+          (ngSubmit)="signin(); form.reset()"
+          #loginForm="ngForm"
+        >
+          <mat-card-title class="mat-card-title">Log In</mat-card-title>
+          <mat-card-subtitle
+            ><a routerLink="/session/register" class="new-user">New User?</a>
+          </mat-card-subtitle>
+
+          <mat-card-content fxLayout="column" fxLayoutGap="10px">
+            <!-- username input field-->
+            <mat-form-field>
+              <input
+                type="text"
+                matInput
+                fxFlex
+                [formControl]="form.controls['userName']"
+                placeholder="Username"
+              />
+              <!-- validation messages -->
+              <mat-error
+                *ngIf="
+                  form.controls['userName'].hasError('required') &&
+                  form.controls['userName'].touched
+                "
+              >
+                User Name is a required field
+              </mat-error>
+            </mat-form-field>
+            <!-- end username input field -->
+
+            <!-- password input field -->
+            <mat-form-field>
+              <input
+                type="password"
+                matInput
+                fxFlex
+                [formControl]="form.controls['password']"
+                placeholder="Password"
+              />
+              <!-- validation messages -->
+              <mat-error
+                *ngIf="
+                  form.controls['password'].hasError('required') &&
+                  form.controls['password'].touched
+                "
+              >
+                Password is a required field
+              </mat-error>
+            </mat-form-field>
+            <!-- end password input field -->
+          </mat-card-content>
+
+          <!-- submit button -->
+          <mat-card-actions>
+            <button
+              type="submit"
+              fxFlex
+              mat-raised-button
+              color="accent"
+              [disabled]="!form.valid"
+            >
+              Submit
+            </button>
+          </mat-card-actions>
+          <!-- end submit button -->
+
+          <br />
+          <a
+            fxLayoutAlign="end"
+            class="forgot-password-link"
+            routerLink="/session/forgot"
+            >Forgot Password?</a
+          >
+        </form>
+        <!-- end signin form -->
+      </mat-card>
+    </mat-card-content>
+    <!-- end signin card content -->
+  </div>
+</div>
+<!-- end fxLayout -->
