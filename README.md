@@ -31,13 +31,6 @@ Admin users can:
 | Database    | MongoDB Atlas (cloud-hosted)       |
 | Auth/Security | Bcrypt for password hashing       |
 
----
-
-## 🖥️ Screenshots
-
-<!-- Add screenshots or screen recordings if available -->
-<img src="screenshots/login-page.png" width="400"/>
-<img src="screenshots/user-create-form.png" width="400"/>
 
 ---
 
