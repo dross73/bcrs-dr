@@ -73,7 +73,7 @@ Make sure the backend is running at `https://bcrs-dr.onrender.com/api`.
 
 **Admin Login Credentials:**
 
-For security reasons, admin credentials are not included in this repository. If you need access, please contact me via LinkedIn at [https://www.linkedin.com/in/dan-ross-1a7004118/].
+For security reasons, admin credentials are not included in this repository. If you need access, please contact me via [LinkedIn](https://www.linkedin.com/in/dan-ross-1a7004118/).
 
 ---
 
