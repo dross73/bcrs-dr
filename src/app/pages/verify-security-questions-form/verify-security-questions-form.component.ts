@@ -11,6 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { SecurityQuestion } from 'src/app/shared/interfaces/security-question.interface';
+import { environment } from '../../../environments/environment.prod';
+
+
 
 @Component({
   selector: 'app-verify-security-questions-form',
@@ -38,7 +41,7 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
     console.log(this.username);
 
     //Get the users security questions
-    this.http.get('/api/users/' + this.username + '/security-questions').subscribe(res => {
+    this.http.get(`${environment.apiBaseUrl}users/${this.username}/security-questions`).subscribe(res => {
       //Bind the security questions data returned to selectedSecurityQuestions
       this.selectedSecurityQuestions = res['data'];
       console.log(this.selectedSecurityQuestions);
@@ -74,9 +77,10 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
     console.log(answerToSecurityQuestion2);
     console.log(answerToSecurityQuestion3);
 
-   //Verify the security questions
+    //Verify the security questions
 
-    this.http.post('/api/session/verify/users/' + this.username + '/security-questions', {
+    this.http.post(`${environment.apiBaseUrl}/session/verify/users/${this.username}/security-questions`, {
+
       questionText1: this.question1,
       questionText2: this.question2,
       questionText3: this.question3,

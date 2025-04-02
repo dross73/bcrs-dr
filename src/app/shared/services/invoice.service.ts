@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { Invoice } from '../interfaces/invoice.interface';
-
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +35,8 @@ export class InvoiceService {
    * @returns an observable of type any
    */
   createInvoice(userName: string, invoice: Invoice): Observable<any> {
-    return this.http.post('/api/invoices/' + userName, {
+    return this.http.post(`${environment.apiBaseUrl}/invoices/${userName}`, {
+
       userName: userName,
       lineItems: invoice.lineItems,
       partsAmount: invoice.partsAmount,
@@ -50,6 +51,6 @@ export class InvoiceService {
    * @returns The purchase by service graph
    */
   findPurchasesByServiceGraph() {
-    return this.http.get('/api/invoices/purchases-graph');
+    return this.http.get(`${environment.apiBaseUrl}/invoices/purchases-graph`);
   }
 }

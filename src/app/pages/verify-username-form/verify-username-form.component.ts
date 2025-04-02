@@ -12,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment.prod';
+
 
 
 @Component({
@@ -49,7 +51,8 @@ export class VerifyUsernameFormComponent implements OnInit {
   validateUsername() {
     const username = this.form.controls['username'].value;
 
-    this.http.get('/api/session/verify/users/' + username).subscribe(res => {
+    this.http.get(`${environment.apiBaseUrl}/session/verify/users/${username}`).subscribe(res => {
+
       if (res) {
         this.router.navigate(['/session/verify-security-questions'], {queryParams: {username: username}, skipLocationChange: true});
       }

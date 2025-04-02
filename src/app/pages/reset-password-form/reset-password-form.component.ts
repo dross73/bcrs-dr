@@ -13,6 +13,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../../../environments/environment.prod';
+
 
 @Component({
   selector: 'app-reset-password-form',
@@ -37,11 +39,11 @@ export class ResetPasswordFormComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private cookieService: CookieService) {
     this.isAuthenticated = this.route.snapshot.queryParamMap.get('isAuthenticated');
     this.username = this.route.snapshot.queryParamMap.get('username');
-   }
+  }
 
-   /**
-    * @returns A new form with one required field of password
-    */
+  /**
+   * @returns A new form with one required field of password
+   */
   ngOnInit() {
     this.form = this.fb.group({
       password: [null, [
@@ -57,7 +59,8 @@ export class ResetPasswordFormComponent implements OnInit {
    * @description Resets the user's password, authenticates the user and grants them access
    */
   resetPassword() {
-    this.http.post('/api/session/users/' + this.username + '/reset-password', {
+    this.http.post(`${environment.apiBaseUrl}/session/users/${this.username}/reset-password`, {
+
       password: this.form.controls['password'].value
     }).subscribe(res => {
       this.cookieService.set('sessionuser', this.username, 1);

@@ -14,6 +14,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Role } from '../interfaces/role.interface';
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,7 @@ export class RoleService {
    * @returns All Roles
    */
   findAllRoles(): Observable<any> {
-    return this.http.get('/api/roles');
+    return this.http.get(`${environment.apiBaseUrl}/roles`);
   }
   /**
    * findRoleById API
@@ -39,7 +40,7 @@ export class RoleService {
    * @returns matching role
    */
   findRoleById(roleId: string): Observable<any> {
-      return this.http.get('/api/roles/' + roleId);
+    return this.http.get(`${environment.apiBaseUrl}/roles/${roleId}`);
   }
 
   /**
@@ -49,40 +50,43 @@ export class RoleService {
    * @returns An updated Role
    */
   updateRole(roleId: string, role: Role): Observable<any> {
-    return this.http.put('/api/roles/' + roleId, {
+    return this.http.put(`${environment.apiBaseUrl}/roles/${roleId}`, {
+
       text: role.text
     })
   }
 
- /**
-  *
-  * @param role
-  * @returns new role
-  */
+  /**
+   *
+   * @param role
+   * @returns new role
+   */
   createRole(role: Role): Observable<any> {
-    return this.http.post('/api/roles', {
+    return this.http.post(`${environment.apiBaseUrl}/roles`, {
       text: role.text
     })
   }
 
-/**
- * deleteRole API
- * @param roleId
- * deletes a role from role collections
- */
+  /**
+   * deleteRole API
+   * @param roleId
+   * deletes a role from role collections
+   */
 
   deleteRole(roleId: string): Observable<any> {
-      return this.http.delete('/api/roles/' + roleId);
+    return this.http.delete(`${environment.apiBaseUrl}/roles/${roleId}`);
+
   }
 
-/**
- * FindUserRole API
- * @param userName
- * @returns users role
- */
+  /**
+   * FindUserRole API
+   * @param userName
+   * @returns users role
+   */
 
   findUserRole(userName: string): Observable<any> {
-      return this.http.get('/api/users/' + userName + '/role');
+    return this.http.get(`${environment.apiBaseUrl}/users/${userName}/role`);
+
   }
 
 }
