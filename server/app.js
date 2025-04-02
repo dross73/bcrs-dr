@@ -42,6 +42,14 @@ app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
  */
 const port = process.env.PORT || 3000; // server port
 
+const cors = require('cors');
+
+//Allow requests from Netlify
+app.use(cors({
+  origin: 'https://sparkling-puppy-bf2166.netlify.app',
+  credentials: true
+}));
+
 // This line will need to be replaced with your actual database connection string
 const conn =
   "mongodb+srv://bcrs_user:" +
