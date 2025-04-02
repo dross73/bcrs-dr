@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment.prod';
+
 
 
 @Component({
@@ -54,20 +56,19 @@ export class SigninComponent implements OnInit {
     const userName = this.form.controls.userName.value;
     const password = this.form.controls.password.value;
 
-    this.http.post('/api/session/signin', {
+    this.http.post(`${environment.apiBaseUrl}/session/login`, {
       userName,
       password
     }).subscribe(res => {
       console.log(res['data']);
       if (res['data'].userName) {
-
         this.cookieService.set('sessionuser', res['data'].userName, 1);
         this.router.navigate(['/']);
       }
     }, err => {
       console.log(err);
       this.errorMessage = err;
-
     });
   }
+
 }
