@@ -56,7 +56,7 @@ export class SigninComponent implements OnInit {
     const userName = this.form.controls.userName.value;
     const password = this.form.controls.password.value;
 
-    this.http.post(`${environment.apiBaseUrl}/session/login`, {
+    this.http.post(`${environment.apiBaseUrl}/session/signin`, {
       userName,
       password
     }).subscribe(res => {
