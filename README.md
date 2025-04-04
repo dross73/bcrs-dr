@@ -1,4 +1,3 @@
-
 # BCRS-DR: Bob's Computer Repair Shop
 
 A full-stack web application for managing users, roles, invoices, and security questions — built using Angular, Node.js, Express, and MongoDB.
@@ -9,32 +8,43 @@ A full-stack web application for managing users, roles, invoices, and security q
 
 ---
 
-## 🧠 Purpose
+## 🚀 Live Site
+
+**Frontend:**  
+🔗 [https://sparkling-puppy-bf2166.netlify.app](https://sparkling-puppy-bf2166.netlify.app)
+
+> ⚠️ **Note:** The application is hosted on Netlify's free tier. As a result, there might be a brief delay when accessing the site if it hasn't been used recently, due to the server spinning up from an idle state.
+
+---
+
+## Purpose
 
 This project simulates a basic business support system where users can:
+
 - Register and manage their profile
 - Retrieve security questions
 - Receive invoices for computer repairs (via the admin portal)
 
 Admin users can:
+
 - Manage users and their roles
 - View invoice history
 - Add or disable users
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
-| Layer       | Technology                         |
-|-------------|-------------------------------------|
-| Frontend    | Angular (v11) + Angular Material UI |
-| Backend     | Node.js, Express.js                |
-| Database    | MongoDB Atlas (cloud-hosted)       |
-| Auth/Security | Bcrypt for password hashing       |
+| Layer     | Technology                         |
+|-----------|------------------------------------|
+| Frontend  | Angular (v11) + Angular Material UI|
+| Backend   | Node.js, Express.js                |
+| Database  | MongoDB Atlas (cloud-hosted)       |
+| Auth/Security | Bcrypt for password hashing    |
 
 ---
 
-## 🛠️ Setup Instructions
+## ️ Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -65,11 +75,11 @@ npm run build
 
 ### 4. Running the Backend
 
-Make sure the backend is running at `https://bcrs-dr.onrender.com/api`.
+Ensure the backend is running at `https://bcrs-dr.onrender.com/api`.
 
 ---
 
-## 🔒 Authentication
+## Authentication
 
 **Admin Login Credentials:**
 
@@ -77,8 +87,8 @@ For security reasons, admin credentials are not included in this repository. If 
 
 ---
 
-## 📱 Contact
+## Contact
 
-For more information, visit my LinkedIn profile: [Dan Ross](https://www.linkedin.com/in/dan-ross-1a7004118/)
+For more information, visit my LinkedIn profile: [Dan Ross](https://www.linkedin.com/in/dan-ross-1a7004118/).
 
 If you have any questions or requests, feel free to reach out to me at [danrossemail@gmail.com](mailto:danrossemail@gmail.com).
