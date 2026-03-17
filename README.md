@@ -1,6 +1,6 @@
 # BCRS-DR: Bob's Computer Repair Shop
 
-Full-stack web application for managing users, roles, invoices, and security questions. Built with Angular, Node.js, Express, and MongoDB.
+Full-stack application demonstrating user management, role-based access control, and RESTful API integration. Built with Angular, Node.js, Express, and MongoDB.
 
 > Created by Dan Ross  
 > Originally developed as a full-stack application and later refined for deployment and demonstration
