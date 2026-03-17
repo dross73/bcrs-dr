@@ -3,7 +3,7 @@
 Full-stack web application for managing users, roles, invoices, and security questions. Built with Angular, Node.js, Express, and MongoDB.
 
 > Created by Dan Ross  
-> Originally developed as a school project and later refined for demonstration purposes
+> Originally developed as a full-stack application and later refined for deployment and demonstration
 
 ---
 
